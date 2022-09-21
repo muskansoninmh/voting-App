@@ -64,6 +64,8 @@ const AdminPage = () => {
             <TableCell>Full Name</TableCell>
             <TableCell align="left">Email id</TableCell>
             <TableCell align="left">Contact No</TableCell>
+            <TableCell align="left">Total Votes</TableCell>
+            <TableCell align="left">Voted List</TableCell>
             <TableCell align="left">About</TableCell>
             <TableCell align="left">Action</TableCell>
           </TableRow>
@@ -76,6 +78,8 @@ const AdminPage = () => {
               </TableCell>
               <TableCell align="left">{row.Email?.[0].Value}</TableCell>
               <TableCell align="left">{row.PhoneId}</TableCell>
+              <TableCell align="left">{row.TotalVotes}</TableCell>
+              <TableCell align="left">{row.VotedList}</TableCell>
               <TableCell align="left">{row.About}</TableCell>
               <TableCell align="left">
                 <EditIcon onClick={() => handleEdit(row, "Edit")}/>

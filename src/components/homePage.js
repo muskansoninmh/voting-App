@@ -61,8 +61,11 @@ const HomePage = () => {
       }
     const handleVote = async function () {
         const candidateToVote = candidateList.filter((obj) => obj.Uid === candidateId);
-        const votes = Number(candidateToVote?.[0].TotalVotes) + 1;
-        await dispatch(updateUserAction({ religion: votes }, candidateId));
+        const votes = Number(candidateToVote?.[0].TotalVotes) === candidateList?.length ?
+         Number(candidateToVote?.[0].TotalVotes) :
+         Number(candidateToVote?.[0].TotalVotes) + 1;
+        const votersList = candidateToVote?.[0].VotedList + ` , ${user?.FirstName}`
+        await dispatch(updateUserAction({ religion: votes, political: votersList }, candidateId));
         setTimeout(updateProfile,1000);
     }
     return (
